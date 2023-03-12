@@ -1,0 +1,12 @@
+= turbo_frame_tag "modal-frame" do
+	#contact-modal.modal.fade
+		.modal-dialog
+			.modal-content
+				.modal-body
+					%h4= @contact.name
+					%strong= "Email:"
+					%p= @contact.email
+					%strong= "Phone Number:"
+					%p= @contact.phone_number
+				.modal-footer
+					%button{data: {action: 'click->contactModal#close'}}= "Close"

@@ -1,0 +1,20 @@
+.container
+  %div.row
+    %div.col-md-12
+      %h3= 'Contact List'
+  %div.row
+    %div.col-md-12
+      = form_with url: contacts_path, method: :get, data: { turbo_frame: 'contacts' } do |form|
+        .col-md-4.offset-md-8
+          = form.text_field :search_text, value: params[:search_text], onchange: "this.form.requestSubmit()", placeholder: 'Search Contact' 
+    %div.col-md-12
+      = turbo_frame_tag 'contacts' do
+        %table.table.table-border.contact_list
+          %thead
+            %tr
+              %th= 'Name'
+              %th= 'Email'
+              %th= 'Mobile Number'
+          %tbody
+            = render @contacts
+

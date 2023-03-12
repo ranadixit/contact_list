@@ -1,0 +1,9 @@
+- if @contacts
+  %tr.table_row{id: "#{dom_id contact}"}
+    %td
+      = link_to contact.name, contact_path(contact), data: { turbo_frame: 'modal-frame', action: 'click->contactModal#open' }
+    %td= contact.email  
+    %td= contact.phone_number
+- else
+  %tr
+    %td= 'No contact found'
